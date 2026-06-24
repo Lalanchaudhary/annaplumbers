@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANNA Plumber Service provides fast, reliable, affordable 24/7 emergency plumbing services for homes and businesses.">
+  <meta name="keywords" content="plumber, emergency plumber, leak repair, drain cleaning, pipe installation, water heater repair, ANNA Plumber Service">
+  <meta name="author" content="ANNA Plumber Service">
+  <meta property="og:title" content="ANNA Plumber Service - Your Trusted Plumbing Partner">
+  <meta property="og:description" content="24/7 emergency plumbing solutions for homes and businesses.">
+  <meta property="og:type" content="website">
+  <title>ANNA Plumber Service | 24/7 Emergency Plumbing</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --blue: #0b74d1;
+      --blue-dark: #07569c;
+      --blue-light: #e7f3ff;
+      --ink: #1f2937;
+      --muted: #65748b;
+      --line: #dbe4ef;
+      --white: #ffffff;
+      --soft: #f5f9fd;
+      --dark: #17202e;
+      --success: #12a26b;
+      --warning: #ffb020;
+      --shadow: 0 18px 42px rgba(31, 41, 55, 0.12);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: grid;
+      place-items: center;
+      background: var(--white);
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-ring {
+      width: 58px;
+      height: 58px;
+      border: 5px solid var(--blue-light);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      background: var(--dark);
+      color: #dbe8f5;
+      font-size: 0.92rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 9px 0;
+    }
+
+    .topbar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--dark);
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 12px 22px rgba(11, 116, 209, 0.28);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 12px;
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--blue-light);
+      color: var(--blue-dark);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(11, 116, 209, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--blue-dark);
+      box-shadow: 0 16px 30px rgba(11, 116, 209, 0.28);
+    }
+
+    .btn.secondary {
+      background: var(--white);
+      color: var(--blue-dark);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn.dark {
+      background: var(--dark);
+      box-shadow: 0 12px 24px rgba(23, 32, 46, 0.2);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: calc(100vh - 116px);
+      display: grid;
+      align-items: center;
+      padding: 70px 0;
+      background: linear-gradient(90deg, rgba(11, 116, 209, 0.95), rgba(7, 86, 156, 0.78)), url("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: var(--white);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+      align-items: center;
+      gap: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      color: inherit;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(2.35rem, 6vw, 4.9rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #eaf5ff;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions,
+    .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--ink);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      height: 280px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 18px;
+    }
+
+    .quick-book h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field {
+      width: 100%;
+      min-height: 46px;
+      margin-bottom: 12px;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(11, 116, 209, 0.12);
+    }
+
+    section {
+      scroll-margin-top: 90px;
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-head span {
+      color: var(--blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+    }
+
+    .section-head h2 {
+      margin: 8px 0 12px;
+      color: var(--dark);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .about,
+    .pricing,
+    .gallery,
+    .privacy {
+      background: var(--soft);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+      align-items: center;
+      gap: 48px;
+    }
+
+    .split img {
+      width: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .content-block h2 {
+      margin-bottom: 16px;
+      color: var(--dark);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.17;
+    }
+
+    .content-block p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 11px;
+      margin: 24px 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .check-list i {
+      margin-top: 4px;
+      color: var(--success);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .stat {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(31, 41, 55, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--blue);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      height: 100%;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 25px rgba(31, 41, 55, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(11, 116, 209, 0.35);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 1.35rem;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-size: 1.18rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .choose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .choose-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(31, 41, 55, 0.06);
+    }
+
+    .choose-item i {
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .emergency {
+      background: linear-gradient(90deg, rgba(23, 32, 46, 0.96), rgba(7, 86, 156, 0.92)), url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: var(--white);
+    }
+
+    .emergency-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .emergency h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.12;
+      margin-bottom: 10px;
+    }
+
+    .emergency p {
+      color: #eaf5ff;
+      font-size: 1.12rem;
+    }
+
+    .price-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .price-head {
+      padding: 26px;
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-head {
+      background: var(--blue);
+    }
+
+    .price {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      margin-top: 12px;
+      font-size: 2.2rem;
+      font-weight: 900;
+    }
+
+    .price small {
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #dcefff;
+    }
+
+    .price-body {
+      padding: 26px;
+    }
+
+    .price-body ul {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+      list-style: none;
+    }
+
+    .price-body li {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .price-body i {
+      margin-top: 5px;
+      color: var(--success);
+    }
+
+    .stars {
+      color: var(--warning);
+      margin-bottom: 14px;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .avatar {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      font-weight: 900;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      min-height: 255px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-label {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: rgba(23, 32, 46, 0.84);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .blog-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .blog-body {
+      padding: 24px;
+    }
+
+    .blog-date {
+      color: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .faq {
+      background: var(--soft);
+    }
+
+    .faq-list {
+      max-width: 850px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: var(--dark);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--muted);
+      transition: max-height 0.25s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 18px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 180px;
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 30px;
+    }
+
+    .contact-form,
+    .contact-info,
+    .legal-box {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 25px rgba(31, 41, 55, 0.06);
+    }
+
+    textarea.field {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 16px;
+      margin: 18px 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .info-list i {
+      display: grid;
+      place-items: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .map-placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 220px;
+      margin-top: 18px;
+      border: 1px dashed #9fb6cf;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #edf6ff, #ffffff);
+      color: var(--blue-dark);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .legal-box h3 {
+      margin-bottom: 12px;
+    }
+
+    .legal-box p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      background: var(--dark);
+      color: #dbe8f5;
+      padding: 60px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+
+    .footer h3,
+    .footer h4 {
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .footer ul {
+      display: grid;
+      gap: 9px;
+      list-style: none;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .socials a {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-2px);
+      background: var(--blue);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: #aab9c8;
+      font-size: 0.92rem;
+    }
+
+    .floating-actions {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2100;
+      display: grid;
+      gap: 10px;
+    }
+
+    .float-btn,
+    .back-top {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 50%;
+      color: var(--white);
+      box-shadow: 0 14px 28px rgba(23, 32, 46, 0.22);
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .float-btn:hover,
+    .back-top:hover {
+      transform: translateY(-3px);
+    }
+
+    .whatsapp {
+      background: #25d366;
+    }
+
+    .call-float {
+      background: #ef4444;
+    }
+
+    .back-top {
+      background: var(--blue);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .promo-popup {
+      position: fixed;
+      inset: 0;
+      z-index: 1900;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(23, 32, 46, 0.72);
+    }
+
+    .promo-popup.show {
+      display: flex;
+    }
+
+    .promo-popup-card {
+      position: relative;
+      width: min(92vw, 520px);
+      max-height: calc(100vh - 48px);
+    }
+
+    .promo-popup-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .promo-popup-link img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: calc(100vh - 48px);
+      object-fit: contain;
+    }
+
+    .promo-popup-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--dark);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+    }
+
+    .promo-popup-close:hover {
+      color: var(--blue);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1040px) {
+      .nav-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 86px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        justify-content: flex-start;
+      }
+
+      .hero-grid,
+      .split,
+      .contact-grid,
+      .emergency-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .emergency-wrap {
+        text-align: center;
+      }
+
+      .emergency-wrap .btn {
+        justify-self: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 54px 0;
+      }
+
+      .hero-card img {
+        height: 220px;
+      }
+
+      .form-row,
+      .card-grid,
+      .choose-grid,
+      .gallery-grid,
+      .stats,
+      .legal-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .contact-form,
+      .contact-info,
+      .legal-box,
+      .card {
+        padding: 22px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .floating-actions {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .float-btn,
+      .back-top {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    @media (max-width: 760px) {
+      .promo-popup {
+        padding: 0;
+      }
+
+      .promo-popup-card,
+      .promo-popup-link {
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+      }
+
+      .promo-popup-link img {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        object-fit: contain;
+      }
+
+      .promo-popup-link {
+        border-radius: 0;
+      }
+
+      .promo-popup-close {
+        top: 12px;
+        right: 12px;
+      }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18226881421"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18226881421');
+</script>
+</head>
+<body>
+  <div class="loader" aria-label="Loading website">
+    <div class="loader-ring"></div>
+  </div>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><i class="fa-solid fa-clock"></i> 24/7 Emergency Service</span>
+      <span><i class="fa-solid fa-phone"></i> Call Now: +91 98765 43210</span>
+      <span><i class="fa-solid fa-envelope"></i> info@annaplumber.com</span>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="#home" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-faucet-drip"></i></span>
+        <span>ANNA Plumber Service <small>Your Trusted Plumbing Partner</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#emergency">Emergency</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Licensed local plumbing experts</span>
+          <h1>Fast, Reliable & Affordable Plumbing Services</h1>
+          <p>24/7 Emergency Plumbing Solutions for Homes and Businesses</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+919876543210"><i class="fa-solid fa-phone"></i> Call Now</a>
+            <a class="btn secondary" href="#booking"><i class="fa-solid fa-calendar-check"></i> Book Service</a>
+          </div>
+        </div>
+        <aside class="hero-card quick-book reveal" id="booking" aria-label="Quick booking form">
+          <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=900&q=80" alt="Professional plumber repairing a sink pipe">
+          <h3>Book a Plumbing Visit</h3>
+          <form class="booking-form">
+            <div class="form-row">
+              <input class="field" type="text" name="name" placeholder="Name" required>
+              <input class="field" type="tel" name="phone" placeholder="Phone" required>
+            </div>
+            <select class="field" name="service" required>
+              <option value="">Service Required</option>
+              <option>Leak Detection & Repair</option>
+              <option>Drain Cleaning</option>
+              <option>Water Heater Repair</option>
+              <option>Emergency Plumbing</option>
+            </select>
+            <button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Request Callback</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container split">
+        <div class="content-block reveal">
+          <span class="eyebrow" style="background: var(--blue-light); color: var(--blue-dark);">About Us</span>
+          <h2>Professional plumbing support with honest pricing and dependable workmanship.</h2>
+          <p>ANNA Plumber Service helps homeowners, builders, offices, shops, and property managers solve plumbing problems quickly. From small leaks to urgent pipe bursts, our trained technicians arrive equipped, explain the work clearly, and leave the site clean.</p>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-circle-check"></i> Emergency assistance available every day and night</li>
+            <li><i class="fa-solid fa-circle-check"></i> Clear estimates before work begins</li>
+            <li><i class="fa-solid fa-circle-check"></i> Durable materials and quality repair methods</li>
+          </ul>
+          <a class="btn" href="#contact"><i class="fa-solid fa-message"></i> Talk to an Expert</a>
+        </div>
+        <div class="reveal">
+          <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1100&q=80" alt="Plumber using tools for pipe repair">
+        </div>
+      </div>
+      <div class="container stats reveal" aria-label="Company statistics">
+        <div class="stat"><strong data-count="15">0</strong><span>Years Experience</span></div>
+        <div class="stat"><strong data-count="3200">0</strong><span>Jobs Completed</span></div>
+        <div class="stat"><strong data-count="24">0</strong><span>Hour Service</span></div>
+        <div class="stat"><strong data-count="98">0</strong><span>Customer Rating %</span></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Services</span>
+          <h2>Complete plumbing services for every property</h2>
+          <p>Routine maintenance, installations, repairs, and urgent callouts handled by experienced plumbing professionals.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-droplet"></i></span><h3>Leak Detection & Repair</h3><p>Accurate leak tracing and lasting repairs for walls, ceilings, bathrooms, kitchens, and underground lines.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-pipe-valve"></i></span><h3>Pipe Installation</h3><p>New pipe layouts, replacements, rerouting, and upgrades using reliable materials for long service life.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-water"></i></span><h3>Drain Cleaning</h3><p>Clog removal for sinks, toilets, showers, floor drains, and main drainage with careful inspection.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-bath"></i></span><h3>Bathroom Plumbing</h3><p>Toilet, basin, shower, mixer, flush tank, and bathroom fixture installation and repair.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-sink"></i></span><h3>Kitchen Plumbing</h3><p>Sink lines, faucets, appliance connections, water filters, and drainage solutions for modern kitchens.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-database"></i></span><h3>Water Tank Installation</h3><p>Tank fitting, inlet and outlet connections, float valves, overflow solutions, and cleaning support.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-temperature-arrow-up"></i></span><h3>Water Heater Repair</h3><p>Geyser connections, pressure issues, hot water line repairs, valve replacements, and safety checks.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-truck-medical"></i></span><h3>Emergency Plumbing Services</h3><p>Rapid help for burst pipes, severe leaks, overflowing drains, and urgent water supply issues.</p></article>
+          <article class="card reveal"><span class="service-icon"><i class="fa-solid fa-road"></i></span><h3>Sewer Line Repair</h3><p>Sewer blockage diagnosis, damaged line repair, odor control, and preventive maintenance guidance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Why Choose Us</span>
+          <h2>Built for fast response and reliable results</h2>
+          <p>We combine prompt service, practical expertise, and customer-first communication from the first call to final cleanup.</p>
+        </div>
+        <div class="choose-grid">
+          <div class="choose-item reveal"><i class="fa-solid fa-headset"></i> 24/7 Emergency Support</div>
+          <div class="choose-item reveal"><i class="fa-solid fa-id-card"></i> Licensed & Experienced Plumbers</div>
+          <div class="choose-item reveal"><i class="fa-solid fa-tags"></i> Affordable Pricing</div>
+          <div class="choose-item reveal"><i class="fa-solid fa-bolt"></i> Fast Response Time</div>
+          <div class="choose-item reveal"><i class="fa-solid fa-award"></i> Guaranteed Workmanship</div>
+          <div class="choose-item reveal"><i class="fa-solid fa-face-smile"></i> Customer Satisfaction Guarantee</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="emergency" id="emergency">
+      <div class="container emergency-wrap reveal">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-triangle-exclamation"></i> Emergency Plumbing</span>
+          <h2>Need an Emergency Plumber?</h2>
+          <p>Available 24 Hours a Day, 7 Days a Week for urgent leaks, bursts, clogs, and water damage prevention.</p>
+        </div>
+        <a class="btn" href="tel:+919876543210"><i class="fa-solid fa-phone-volume"></i> Call +91 98765 43210</a>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Pricing</span>
+          <h2>Transparent service packages</h2>
+          <p>Choose the level of support that fits the job. Final estimates depend on site conditions and parts required.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card price-card reveal">
+            <div class="price-head"><h3>Basic Plumbing Service</h3><div class="price">Rs. 499 <small>visit</small></div></div>
+            <div class="price-body">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Inspection and diagnosis</li>
+                <li><i class="fa-solid fa-check"></i> Minor tap or flush repair</li>
+                <li><i class="fa-solid fa-check"></i> Clear repair estimate</li>
+              </ul>
+              <a class="btn secondary" href="#contact">Choose Basic</a>
+            </div>
+          </article>
+          <article class="card price-card featured reveal">
+            <div class="price-head"><h3>Standard Plumbing Package</h3><div class="price">Rs. 1,499 <small>from</small></div></div>
+            <div class="price-body">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Leak and drain support</li>
+                <li><i class="fa-solid fa-check"></i> Fixture installation help</li>
+                <li><i class="fa-solid fa-check"></i> Priority scheduling</li>
+              </ul>
+              <a class="btn" href="#contact">Choose Standard</a>
+            </div>
+          </article>
+          <article class="card price-card reveal">
+            <div class="price-head"><h3>Premium Plumbing Package</h3><div class="price">Rs. 3,999 <small>from</small></div></div>
+            <div class="price-body">
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Emergency priority visit</li>
+                <li><i class="fa-solid fa-check"></i> Advanced repair support</li>
+                <li><i class="fa-solid fa-check"></i> Workmanship follow-up</li>
+              </ul>
+              <a class="btn secondary" href="#contact">Choose Premium</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Testimonials</span>
+          <h2>Customers trust ANNA Plumber Service</h2>
+          <p>Professional support, neat work, and responsive communication are what our customers remember most.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card reveal"><div class="stars" aria-label="5 star rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p>They arrived quickly during a late-night leak and fixed the pipe without making a mess. Clear pricing and very professional service.</p><div class="testimonial-meta"><span class="avatar">RK</span><div><strong>Rahul Kumar</strong><br><small>Homeowner</small></div></div></article>
+          <article class="card reveal"><div class="stars" aria-label="5 star rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p>Our office washroom drain was blocked for two days. ANNA Plumber Service solved it the same morning and explained how to prevent it.</p><div class="testimonial-meta"><span class="avatar">MS</span><div><strong>Meera Shah</strong><br><small>Business Owner</small></div></div></article>
+          <article class="card reveal"><div class="stars" aria-label="5 star rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p>Great workmanship on our bathroom renovation plumbing. The team was punctual, polite, and the final fittings look excellent.</p><div class="testimonial-meta"><span class="avatar">AP</span><div><strong>Arun Patel</strong><br><small>Apartment Owner</small></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Gallery</span>
+          <h2>Recent plumbing projects</h2>
+          <p>Before and after repair showcase from residential and commercial plumbing work.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=900&q=80" alt="Pipe repair work"><figcaption class="gallery-label">Pipe Repair - Before & After</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80" alt="Modern bathroom plumbing"><figcaption class="gallery-label">Bathroom Fixture Upgrade</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=900&q=80" alt="Kitchen sink plumbing"><figcaption class="gallery-label">Kitchen Sink Installation</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80" alt="Plumbing tool kit"><figcaption class="gallery-label">Emergency Repair Tools</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1592906297142-4c5f86c36760?auto=format&fit=crop&w=900&q=80" alt="Water heater installation"><figcaption class="gallery-label">Water Heater Service</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80" alt="Professional plumbing maintenance"><figcaption class="gallery-label">Preventive Maintenance</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Blog</span>
+          <h2>Plumbing tips and service guidance</h2>
+          <p>Simple advice to help protect your property and know when to call a professional plumber.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card blog-card reveal"><img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=900&q=80" alt="Clean home bathroom"><div class="blog-body"><span class="blog-date">Maintenance Tips</span><h3>Signs You May Have a Hidden Water Leak</h3><p>Watch for damp walls, rising bills, low pressure, and musty odors before a small leak becomes expensive.</p></div></article>
+          <article class="card blog-card reveal"><img src="https://images.unsplash.com/photo-1564540574859-0dfb63985953?auto=format&fit=crop&w=900&q=80" alt="Drain cleaning preparation"><div class="blog-body"><span class="blog-date">Drain Care</span><h3>How to Keep Kitchen Drains Flowing</h3><p>Good habits, regular flushing, and quick action can prevent clogs and protect your plumbing system.</p></div></article>
+          <article class="card blog-card reveal"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80" alt="Emergency plumbing tools"><div class="blog-body"><span class="blog-date">Emergency Guide</span><h3>What to Do When a Pipe Bursts</h3><p>Shut off the water supply, protect electrical points, and call emergency plumbing support immediately.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>FAQ</span>
+          <h2>Common plumbing questions</h2>
+          <p>Quick answers before you book a service visit.</p>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item open">
+            <button class="faq-question" type="button">Do you provide 24/7 emergency service? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Yes. ANNA Plumber Service is available 24 hours a day, 7 days a week for urgent plumbing problems.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">Can I get a price before repair starts? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Yes. Our plumber inspects the issue, explains the required work, and shares a clear estimate before starting.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">Do you handle both homes and businesses? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Yes. We serve residential apartments, independent homes, shops, offices, and commercial properties.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Contact Us</span>
+          <h2>Request plumbing service today</h2>
+          <p>Share your details and our team will contact you to confirm the service requirement and visit time.</p>
+        </div>
+        <div class="contact-grid">
+          <form class="contact-form reveal">
+            <div class="form-row">
+              <input class="field" type="text" name="name" placeholder="Name" required>
+              <input class="field" type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-row">
+              <input class="field" type="tel" name="phone" placeholder="Phone Number" required>
+              <select class="field" name="service" required>
+                <option value="">Service Required</option>
+                <option>Leak Detection & Repair</option>
+                <option>Pipe Installation</option>
+                <option>Drain Cleaning</option>
+                <option>Bathroom Plumbing</option>
+                <option>Kitchen Plumbing</option>
+                <option>Water Tank Installation</option>
+                <option>Water Heater Repair</option>
+                <option>Emergency Plumbing Services</option>
+                <option>Sewer Line Repair</option>
+              </select>
+            </div>
+            <textarea class="field" name="message" placeholder="Message" required></textarea>
+            <button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          </form>
+          <aside class="contact-info reveal">
+            <h3>Business Information</h3>
+            <ul class="info-list">
+              <li><i class="fa-solid fa-location-dot"></i><span><strong>Business Address</strong><br>ANNA Plumber Service, Main Road, Chennai, Tamil Nadu 600001</span></li>
+              <li><i class="fa-solid fa-phone"></i><span><strong>Phone Number</strong><br>+91 98765 43210</span></li>
+              <li><i class="fa-solid fa-envelope"></i><span><strong>Email Address</strong><br>info@annaplumber.com</span></li>
+              <li><i class="fa-solid fa-clock"></i><span><strong>Availability</strong><br>24/7 Emergency Service</span></li>
+            </ul>
+            <div class="map-placeholder">
+              <div><i class="fa-solid fa-map-location-dot"></i><br>Google Maps Integration Placeholder</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy" id="privacy">
+      <div class="container legal-grid">
+        <article class="legal-box reveal">
+          <h3>Privacy Policy</h3>
+          <p>ANNA Plumber Service collects contact and service request details only to respond to enquiries, schedule visits, provide estimates, and improve customer support.</p>
+          <p>We do not sell customer information. Details submitted through forms are handled responsibly and shared only when needed to complete the requested service.</p>
+        </article>
+        <article class="legal-box reveal" id="terms">
+          <h3>Terms & Conditions</h3>
+          <p>Service pricing may vary based on inspection, required parts, urgency, accessibility, and site conditions. Customers receive an estimate before work begins.</p>
+          <p>Warranty coverage applies to workmanship as confirmed on the job invoice and excludes misuse, unrelated damage, and third-party modifications.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>ANNA Plumber Service</h3>
+        <p>Your Trusted Plumbing Partner for 24/7 emergency service, repairs, maintenance, and installations.</p>
+        <div class="socials" aria-label="Social media links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Leak Detection</a></li>
+          <li><a href="#services">Drain Cleaning</a></li>
+          <li><a href="#services">Bathroom Plumbing</a></li>
+          <li><a href="#services">Water Heater Repair</a></li>
+          <li><a href="#emergency">Emergency Plumbing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Information</h4>
+        <ul>
+          <li>+91 98765 43210</li>
+          <li>info@annaplumber.com</li>
+          <li>Chennai, Tamil Nadu</li>
+          <li>Available 24/7</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>Copyright &copy; <span id="year"></span> ANNA Plumber Service. All Rights Reserved.</span>
+      <span>Fast loading static website built with HTML, CSS, and JavaScript.</span>
+    </div>
+  </footer>
+
+  <div class="promo-popup" id="promoPopup" aria-label="Eldorado offer popup" role="dialog" aria-modal="true">
+    <div class="promo-popup-card">
+      <button class="promo-popup-close" type="button" aria-label="Close offer popup"><i class="fa-solid fa-xmark"></i></button>
+      <a class="promo-popup-link" href="https://wa.me/919241474100?text=I%20want%20to%20know%20more" onclick="return gtag_report_conversion('https://wa.me/919241474100?text=I%20want%20to%20know%20more')" target="_blank" rel="noopener" aria-label="Chat on WhatsApp about Eldorado">
+        <img src="eldorado.png" alt="Eldorado promotional offer">
+      </a>
+    </div>
+  </div>
+
+  <div class="floating-actions" aria-label="Quick contact actions">
+    <a class="float-btn whatsapp" href="https://wa.me/919241474100?text=I%20want%20to%20know%20more" onclick="return gtag_report_conversion('https://wa.me/919241474100?text=I%20want%20to%20know%20more')" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="float-btn call-float" href="tel:+919876543210" aria-label="Emergency call"><i class="fa-solid fa-phone"></i></a>
+    <button class="back-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+
+  <script>
+    const loader = document.querySelector('.loader');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+    const backTop = document.querySelector('.back-top');
+    const sections = document.querySelectorAll('main section[id]');
+    const counters = document.querySelectorAll('[data-count]');
+    const revealItems = document.querySelectorAll('.reveal');
+    const promoPopup = document.getElementById('promoPopup');
+    const promoClose = document.querySelector('.promo-popup-close');
+    let countersStarted = false;
+
+    window.addEventListener('load', () => {
+      loader.classList.add('hide');
+      promoPopup.classList.add('show');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.querySelector('i').classList.toggle('fa-bars');
+      navToggle.querySelector('i').classList.toggle('fa-xmark');
+    });
+
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.querySelector('i').classList.add('fa-bars');
+        navToggle.querySelector('i').classList.remove('fa-xmark');
+      });
+    });
+
+    document.querySelectorAll('form').forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fa-solid fa-circle-check"></i> Request Sent';
+        button.disabled = true;
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.disabled = false;
+          form.reset();
+        }, 2200);
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach((button) => {
+      button.addEventListener('click', () => {
+        button.closest('.faq-item').classList.toggle('open');
+      });
+    });
+
+    function closePromoPopup() {
+      promoPopup.classList.remove('show');
+    }
+
+    promoClose.addEventListener('click', closePromoPopup);
+
+    promoPopup.addEventListener('click', (event) => {
+      if (event.target === promoPopup) {
+        closePromoPopup();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && promoPopup.classList.contains('show')) {
+        closePromoPopup();
+      }
+    });
+
+    function animateCounters() {
+      counters.forEach((counter) => {
+        const target = Number(counter.dataset.count);
+        const duration = 1400;
+        const startTime = performance.now();
+        const update = (currentTime) => {
+          const progress = Math.min((currentTime - startTime) / duration, 1);
+          const value = Math.floor(progress * target);
+          counter.textContent = value.toLocaleString();
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target.toLocaleString();
+          }
+        };
+        requestAnimationFrame(update);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if (entry.target.classList.contains('stats') && !countersStarted) {
+            countersStarted = true;
+            animateCounters();
+          }
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('show', window.scrollY > 560);
+
+      let activeId = 'home';
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= 120) {
+          activeId = section.id;
+        }
+      });
+      links.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`);
+      });
+    });
+
+    backTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
